@@ -66,13 +66,12 @@ body
 .section
 {
     flex : 1;
-  
 }
 
 .box
 {
     border-style: groove;
-    margin: 0% 2% 0% 2%
+    margin: 0% 2% 0% 2%;
 }
 
 .section p
@@ -86,6 +85,65 @@ body
     text-align: center;
 }
 
+.title
+{
+    margin-top: 50px;
+    font-family: monospace;
+    font-size: 40px;
+    font-weight: bolder;
+    color: rgb(108, 112, 112);
+    border-bottom: 4px solid rgba(112, 112, 119, 0.158);
+}
+
+.title span
+{
+    margin-left: 20px;    
+}
+.title img
+{
+    height: 50px;
+}
+#achievement-container
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card
+{
+    background-image: linear-gradient(to bottom right,rgb(245, 237, 237), rgb(43, 43, 36));
+    transform-style: preserve-3d;
+    max-width: 15rem;
+    margin: 20px;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow:  3px 4px #f5f3f369;
+    cursor: pointer;
+}
+
+.card img
+{
+    max-width: 100%;
+    transition : all 0.75s ease-out
+}
+
+.card p
+{
+    font-family:  sans-serif;
+    margin-left: 5.5%;
+    margin-right: 5.5%;
+    font-size: 15px;
+    transition : all 0.75s ease-out
+}
+
+.card a
+{
+    text-decoration: none;
+    color: rgb(19, 182, 247);
+}
 .footer
 {
     color: rgb(245, 245, 245);

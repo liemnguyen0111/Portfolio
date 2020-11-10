@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./assets/style/index.css">
     <title>Tim Portfolio</title>
 </head>
@@ -26,7 +27,9 @@
 
         <hr class="hr1">
         <section class="section">
-            <div class='box'>
+            <div class='box'  data-aos="fade-left"
+            data-aos-anchor-placement="center-bottom"
+            data-aos-duration="2500">
                 <p>I'm Tim</p>
                 <p>A recent bootcamp graduated from UCI, Division of Continuing Education.</p>
     
@@ -35,19 +38,89 @@
             </div>
         
             <hr>
-            <div style='color:red'>Highlights</div>
+         
         </section>
 
+        <section class="achievement">
+            <div class="title"> <span><img src="./assets/style/achievement-1589036-1347675.png" alt="Achievement"> Achievements </span></div>
+            <div id="achievement-container">
+
+                <div class="card"   data-aos="zoom-in">
+             
+                    <img src="./assets/style/92c220cfa95a1496a65f22b2be451a6f.png" alt="
+                    Node.js and Express">
+               
+                <a href="https://www.youracclaim.com/earner/earned/badge/f9124b72-61b5-489b-9d1e-4d1a28fd2fee" target="_blank">
+                    <p>Issued by UCI Division of Continuing Education</p>
+                </a>
+                </div>
+
+                <div class="card"  data-aos="zoom-in">
+             
+                    <img src="./assets/style/5b701c34b5d23aadb43038cc3ddb465a.png" alt="
+                    JavaScript and jQuery">
+               
+                <a href="https://www.youracclaim.com/earner/earned/badge/e928ec0c-a0bb-4c8d-b980-88db1fada54f" target="_blank">
+                    <p>Issued by UCI Division of Continuing Education</p>
+                </a>
+                </div>
+
+
+                <div class="card"  data-aos="zoom-in">
+             
+                    <img src="./assets/style/15d7dedd7d4c5ea8499342c5d47237d0.png" alt="React.JS badge">
+               
+                <a href="https://www.youracclaim.com/badges/ff6e15f8-4a81-43fc-8576-e254406c695c" target="_blank">
+                    <p>Issued by UCI Division of Continuing Education</p>
+                </a>
+                </div>
+
+                <div class="card"  data-aos="zoom-in">
+             
+                    <img src="./assets/style/7073faeff9de87438490b30a2a262dc5.png" alt="
+                    Node.js and Express">
+               
+                <a href="https://www.youracclaim.com/earner/earned/badge/1d808cbe-5f49-4327-93f4-30f8aea970e6" target="_blank">
+                    <p>Issued by UCI Division of Continuing Education</p>
+                </a>
+                </div>
+
+                <div class="card"  data-aos="zoom-in">
+             
+                    <img src="./assets/style/db60c34366988e6d178bd37dd50db54f.png" alt="
+                    SQL & NoSQL Databases">
+               
+                <a href="https://www.youracclaim.com/earner/earned/badge/c0786b53-92af-4fe5-9c5d-d5061f1fd75a" target="_blank">
+                    <p>Issued by UCI Division of Continuing Education</p>
+                </a>
+                </div>
+
+
+            </div>
+        </section>
         
         <footer class="footer">
     
-              <a href="https://www.linkedin.com/in/liem-nguyen-588ba1114/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:48px;color:red" ></i></a> 
-              <a href="https://github.com/liemnguyen0111" target="_blank"><i class="fa fa-github" style="font-size:48px;color:rgb(247, 241, 241)"></i></a>
+              <a href="https://www.linkedin.com/in/liem-nguyen-588ba1114/" target="_blank"  ><i class="fa fa-linkedin-square" style="font-size:48px;color:red"  data-aos="fade-left"
+                data-aos-anchor-placement="center-bottom"
+                data-aos-duration="2500"></i></a> 
+              <a href="https://github.com/liemnguyen0111" target="_blank"  ><i class="fa fa-github" style="font-size:48px;color:rgb(247, 241, 241)" data-aos="fade-left"
+                data-aos-anchor-placement="center-bottom"
+                data-aos-duration="2500"></i></a>
     
-            <p>Copyright © 2020. All Rights Reserved.</p>
+            <p 
+            data-aos="fade-right"
+            data-aos-anchor-placement="center-bottom"
+            data-aos-duration="2500"
+        >Copyright © 2020. All Rights Reserved.</p>
         </footer>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="./assets/script/index.js"></script>
 </body>
 </html>
