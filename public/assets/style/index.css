@@ -16,6 +16,13 @@ body
 
 .nav
 {
+    display: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .nav
+{
+    display: block;
     align-self: center;
 }
 .nav > ul
@@ -45,6 +52,69 @@ body
    font-size: 18px;
    border-radius: 30px;
 }   
+  }
+
+
+  .hamburger
+    {
+        display: none;
+    }
+
+  @media only screen and (max-width: 600px) {
+    .hamburger
+    {
+        display: flex;
+    }
+
+    .hamburger p
+    {
+        color: teal;
+        flex-grow: 1;
+        margin: 10px 10px 10px 10%;
+        padding : 10px;
+        text-decoration: none;
+        color: rgba(252, 252, 252, 0.726);
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        transition-duration: .2s;
+    }
+          .hicon
+          {
+              float: right;
+              margin: 15px 15px 5px 5px;
+              background-image: url("./menu.png");
+              background-size: cover;
+              cursor: pointer;
+              height: 50px;
+              width: 50px;
+          }
+      
+  }
+
+  .menu 
+  {
+      display: none;
+      transition : all 3s ease-in-out;
+      animation: menu 3s;
+  }
+
+  @keyframes menu {
+    from { transform: translateY(-10px);}
+    to { transform: translateY(0px);}
+  }
+
+  .menu ul a
+  {
+      background-color: rgba(134, 134, 134, 0);
+      padding : 10px;
+      text-decoration: none;
+      color: rgba(252, 252, 252, 0.87);
+      font-family: sans-serif;
+      font-size: 25px;
+      font-weight: bolder;
+  }
+
 
 .jumbotron
 {
@@ -103,6 +173,120 @@ body
 {
     height: 50px;
 }
+
+.hlcard
+{
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    margin: 20px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: rgba(68, 67, 68, 0);
+    transition : all 0.75s ease-out;
+    transition-duration: 1s;
+}
+
+@media only screen and (min-width: 1150px) {
+
+
+    .info
+    {
+        display: block;
+        margin: 30px;
+        font-family: monospace;
+        color: rgba(2, 241, 54, 0.295);
+        font-size: 20px;
+        word-wrap: break-word;
+    }
+    
+    .info2
+    {
+        flex-grow: 1;
+        text-align: right;
+        display: block;
+        margin: 30px;
+        font-family: monospace;
+        color: rgba(2, 241, 54, 0.295);
+        font-size: 20px;
+    }
+
+    
+.hlcard img
+{
+    margin-left: 20px;
+    height: 80%;
+    max-width: 20rem;
+    justify-content: center;
+
+    border-radius: 30px;
+}
+}
+
+
+@media only screen and (max-width: 1150px) {
+    .info{
+        display: none;
+    }
+    
+    .info2{
+        display: none;
+    }
+
+    .hlcard img
+    {
+        margin-left: 20px;
+        height: 80%;
+        width: 80%;
+        justify-content: center;
+        align-content: center;
+        border-radius: 30px;
+    }
+
+    .hlcard
+    {
+        justify-content: center;
+    }
+
+    .hlcard:hover
+    {
+        transform: scale(1.2)
+    }
+}
+
+
+
+.vmore
+{
+    margin-right: 30px;
+    float: right;
+    animation: vmore 3s infinite;
+}
+
+.vmore a
+{
+    text-decoration: none;
+    font-family: monospace;
+    color: rgb(2, 241, 54);
+}
+
+@keyframes vmore {
+    0% {opacity: .2;}
+    50%{opacity: 1;}
+    100%{opacity: .2;}
+  }
+
+.vmore:hover
+{
+    animation: jump 2s infinite;
+}
+
+@keyframes jump {
+    0% {transform: translateX(0px);}
+    50%{transform: translateX(5px);;}
+    100%{transform: translateX(0px);}
+  }
+
 #achievement-container
 {
     display: flex;
@@ -121,12 +305,28 @@ body
     text-align: center;
     border-radius: 25px;
     box-shadow:  3px 4px #f5f3f369;
-    cursor: pointer;
+    transition : all 0.75s ease-out;
+
 }
+
+.card:hover
+{
+    animation: mymove 1s infinite;
+    transition : all 0.75s ease-in-out
+}
+
+@keyframes mymove {
+    0% {transform: rotateX(0deg) rotateY(0deg);}
+    30% {transform: rotateX(0deg) rotateY(20deg);}
+    60% {transform: rotateX(0deg) rotateY(-20deg);}
+    100% {transform: rotateX(0deg) rotateY(0deg);}
+  }
+
 
 .card img
 {
     max-width: 100%;
+    transform: translateZ(50px);
     transition : all 0.75s ease-out
 }
 
@@ -136,6 +336,7 @@ body
     margin-left: 5.5%;
     margin-right: 5.5%;
     font-size: 15px;
+    transform: translateZ(30px);
     transition : all 0.75s ease-out
 }
 
