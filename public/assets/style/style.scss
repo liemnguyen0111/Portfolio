@@ -1,0 +1,200 @@
+body
+{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+}
+// Navigation settings ---------------------------------------------------------------------------------------------
+.nav-bar
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 70px;
+    // width: 100%;
+    // background: green;
+    white-space: nowrap;
+}
+// Logo settings ---------------------------------------------------------------------------------------------------
+.logo
+{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: auto;
+    font-size: 40px;
+    font-weight: bolder;
+    letter-spacing: 5px;
+    color: rgba(45, 47, 49, 0.822);
+}
+// Menu settings ---------------------------------------------------------------------------------------------------
+.menu
+{
+    display: flex;
+    align-self: center;
+    margin-right: 50px;
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: rgba(45, 47, 49, 0.822);
+}
+
+.menu ul
+{
+    display: flex;
+}
+
+.menu li
+{
+    list-style: none;
+    margin: 0px 15px 0px 15px;
+    cursor: pointer;
+}
+// Burger menu settings --------------------------------------------------------------------------------------------
+.burger
+{
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    right: 15px;
+    height: 29px;
+    width: 35px;
+    cursor: pointer; 
+    transform: scale(1.2);
+}
+.burger div
+{
+    width: 35px;
+    height: 3px;
+    background:  rgba(45, 47, 49, 0.822);
+    margin: 5px 0px 5px 0px;
+    transition: all 0.3s ease;
+}
+
+// Make line1 in burger 15 pixels
+.burger .line1
+{
+    width: 15px;
+}
+
+// active or deactive on toggle
+.toggle .line1
+{
+    transform: rotate(-45deg) translate(-5px, 6px);
+
+    // (!important) Ignore all rules when toggle active and make width 25 pixels
+    width:  35px !important;
+}
+
+.toggle .line2
+{
+    opacity: 0;
+}
+
+.toggle .line3
+{
+    transform: rotate(45deg) translate(-5px, -6px);
+
+    // (!important) Ignore all rules when toggle active and make width 25 pixels
+    width: 35px !important;
+}
+
+// On hover
+.burger:hover .line1
+{
+    width: 35px;
+}
+
+.burger:hover .line3
+{
+    width: 15px;
+}
+
+// Media query when screen lower than 900 pixels
+@media screen and (max-width : 900px)
+{
+    .nav-bar
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .logo
+    {
+       margin: auto;
+       cursor: pointer;
+    }
+
+    .menu
+    {
+        position: absolute;
+        background: linear-gradient(to top , #8f8f8f 10%, #ffffff00 40%);
+        bottom: 0;
+        right: 0;
+        transform: skewY(90deg);
+        opacity: 0;
+        margin-right: 0;
+        height: 100%;
+        width: 300px;
+        text-align: right;
+        transition: all .3s ease;
+        pointer-events: none;
+    }
+    
+    .nav-links
+    {
+        pointer-events: visible;
+    }
+    .menu ul
+    {
+        flex-direction: column;
+        margin: auto 70px 50px auto;
+        width: 50%;
+    }
+
+    .menu li
+    {
+        margin-top: 20px;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .menu li:hover
+    {
+        transform: translateY(-3px);
+        transform: scale(1.1);
+    }
+
+    .burger
+    {
+        display: block;
+    }
+}
+
+// Keyframes for menu animation
+@keyframes navLinkFade
+{
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.transform
+{
+    transition: all 0.5s ease-in-out;
+    transform: translateY(310px);
+}
+
+.nav-active
+{
+    right: 0;
+    opacity: 1;
+    transform: skewY(0deg);
+}
