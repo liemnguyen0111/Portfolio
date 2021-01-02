@@ -1,0 +1,80 @@
+const carouselSlide = document.querySelector('.carousel-slide')
+const carouselImage = document.querySelectorAll('.carousel-slide a')
+
+// Buttons
+let prevBtn = document.querySelector('#prevBtn')
+let nextBtn = document.querySelector('#nextBtn')
+
+// Counter
+let counter = 1
+let size = carouselImage[0].clientWidth
+
+carouselSlide.style.transform = `translateX(${-size * counter}px)`
+
+// Auto slide
+let auto = null
+let autoRun = () =>
+{
+    auto = setInterval(() => {
+        counter++
+        carouselSlide.style.transition = 'transform 0.4s ease-in-out'
+        carouselSlide.style.transform = `translateX(${-size * counter}px)`
+    }, 4000);
+}
+
+autoRun()
+
+let temporaryStop = () =>
+{
+    clearInterval(auto)
+    setTimeout(() => {
+        autoRun()
+    }, 2000);
+}
+
+prevBtn.addEventListener('click', e =>
+{
+
+    temporaryStop()
+    if(counter <= 0) return
+
+    carouselSlide.style.transition = 'transform 0.4s ease-in-out'
+    counter--
+    carouselSlide.style.transform = `translate(` + (-size * counter) + 'px'
+})
+
+nextBtn.addEventListener('click', e =>
+{
+
+    temporaryStop()
+    if(counter >= carouselImage.length - 1) return
+
+    carouselSlide.style.transition = 'transform 0.4s ease-in-out'
+    counter++
+    carouselSlide.style.transform = `translate(` + (-size * counter) + 'px'
+})
+
+carouselSlide.addEventListener('transitionend', () =>
+{
+    if(carouselImage[counter].id === 'lastClone')
+    {
+        carouselSlide.style.transition = 'none'
+        counter = carouselImage.length - counter
+        carouselSlide.style.transform = `translate(` + (-size * counter) + 'px'
+    }
+
+    if(carouselImage[counter].id === 'firstClone')
+    {
+        carouselSlide.style.transition = 'none'
+        counter = carouselImage.length - 2
+        carouselSlide.style.transform = `translate(` + (-size * counter) + 'px'
+    }
+})
+
+
+window.addEventListener('resize', ()=>
+
+{    carouselSlide.style.transition = 'none'
+    size = carouselImage[0].clientWidth
+    carouselSlide.style.transform = `translate(` + (-size * counter) + 'px'
+})

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style/test.css">
     <title>Document</title>
@@ -72,7 +73,41 @@
             <div class="title header">Projects</div>
 
             <div class="content">
-                <div class="slideshow">Featured</div>
+
+                <div class="carousel-container">
+                    <i class="fas fa-arrow-left" id='prevBtn' title="Previous"></i>
+                    <i class="fas fa-arrow-right" id='nextBtn' title="Next"></i>
+                    <div class="carousel-slide">
+        
+                        <a href="" id='firstClone'>
+                            <img src="./assets/testimage/wed-blog-shutterstock_1703194387_low_nwm.jpg" alt="" srcset="">
+                        </a>
+
+                            <a href="">
+                                <img src="./assets/testimage/forest.jpg" alt="" srcset="">
+                            </a>
+                        
+                        <a href="">
+                            <img src="./assets/testimage/turkey-3048299_1920-1366x550.jpg" alt="" srcset="">
+                        </a>
+    
+                        <a href="">
+                            <img src="./assets/testimage/waterfall.jpg" alt="" srcset="">
+                        </a>
+    
+                        <a href="">
+                            <img src="./assets/testimage/wed-blog-shutterstock_1703194387_low_nwm.jpg" alt="" srcset="">
+                        </a>
+
+                        <a href="" id='lastClone'>
+                            <img src="./assets/testimage/forest.jpg" alt="" srcset="">
+                        </a>
+                    </div>
+
+                </div>
+                <div class="plate"></div>
+
+                <!-- <div class="space"></div> -->
                 <div class="projects">Projects</div>
                 <div class="activities">Activities</div>
             </div>
@@ -148,7 +183,8 @@
         </section>
     </div>
 
-
     <footer class="footer">Created by Tim, December 2020</footer>
+
+    <script src="./assets/script/slide.js"></script>
 </body>
 </html>

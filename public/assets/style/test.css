@@ -146,6 +146,7 @@ nav {
   pointer-events: none;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
+  scroll-margin-top: 100px;
 }
 
 .about:hover {
@@ -233,8 +234,8 @@ nav {
 }
 
 .portrait:hover {
-  -webkit-transform: translate(2px, 2px) translateZ(2px) scale(1.5);
-          transform: translate(2px, 2px) translateZ(2px) scale(1.5);
+  -webkit-transform: translate(2px, 2px) translateZ(2px) scale(1.2);
+          transform: translate(2px, 2px) translateZ(2px) scale(1.2);
 }
 
 .portrait:hover::after {
@@ -286,14 +287,15 @@ nav {
 
 .body section {
   margin: 0 0 50px 0;
+  scroll-margin-top: 100px;
 }
 
 .title {
   position: relative;
   font-size: 20px;
   margin-left: 25px;
-  -webkit-transition: 1s ease-in;
-  transition: 1s ease-in;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
   -webkit-transition-property: color, background;
   transition-property: color, background;
 }
@@ -303,33 +305,110 @@ nav {
   position: absolute;
   display: inline-block;
   background: rgba(0, 0, 0, 0.144);
-  -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(94, 104, 121, 0.288);
-          box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(94, 104, 121, 0.288);
+  -webkit-box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.288), 3px 3px 5px rgba(94, 104, 121, 0.288);
+          box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.288), 3px 3px 5px rgba(94, 104, 121, 0.288);
   width: 30%;
-  height: 10px;
+  height: 1px;
   bottom: 0;
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
-  border-radius: 100px;
 }
 
 section:hover .title {
-  color: rgba(255, 0, 0, 0.733);
+  color: #bd046a;
 }
 
 section:hover .title::before {
-  background: rgba(255, 0, 0, 0.733);
+  background: #bd046a;
 }
 
 .content {
   margin: 50px 50px 0 50px;
 }
 
-.slideshow {
-  width: 80%;
-  height: 30vh;
-  border: 1px solid black;
+.carousel-container {
+  position: relative;
+  max-width: 80%;
+  min-width: 17rem;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 350px;
   margin: auto;
+  text-align: center;
+  z-index: 1;
+}
+
+.plate {
+  display: block;
+  bottom: -50px;
+  margin: auto;
+  width: 90%;
+  height: 7vh;
+  border-radius: 10px;
+  -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+          box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+  -webkit-transform: skew(-40deg) translate(-80px, -100px);
+          transform: skew(-40deg) translate(-80px, -100px);
+  z-index: -1;
+}
+
+.carousel-container::after {
+  content: '- Featured -';
+  display: block;
+  position: absolute;
+  font-size: 15px;
+  letter-spacing: 2px;
+  bottom: 55px;
+  left: 15px;
+}
+
+.carousel-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  width: 100%;
+  height: 30vh;
+}
+
+.carousel-slide a {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  pointer-events: none;
+  padding: 0 10px 0 10px;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #706e6e 160%);
+}
+
+.carousel-slide a img {
+  margin: auto;
+  min-height: 100%;
+  max-height: 100%;
+  max-width: 70%;
+  border-radius: 10px;
+  -webkit-transform: skewX(-5deg);
+          transform: skewX(-5deg);
+  pointer-events: auto;
+}
+
+#prevBtn, #nextBtn {
+  position: absolute;
+  z-index: 1;
+  color: #575656;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#prevBtn {
+  top: 50%;
+  left: 10px;
+}
+
+#nextBtn {
+  top: 50%;
+  right: 10px;
 }
 
 .badges {
@@ -432,5 +511,9 @@ section:hover .title::before {
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+.space {
+  height: 100px;
 }
 /*# sourceMappingURL=test.css.map */
