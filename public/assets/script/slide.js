@@ -1,5 +1,7 @@
 const carouselSlide = document.querySelector('.carousel-slide')
 const carouselImage = document.querySelectorAll('.carousel-slide a')
+const images = document.querySelectorAll('.carousel-slide a img')
+const feturbulence = document.querySelector('feturbulence')
 
 // Buttons
 let prevBtn = document.querySelector('#prevBtn')
@@ -15,6 +17,7 @@ carouselSlide.style.transform = `translateX(${-size * counter}px)`
 let auto = null
 let autoRun = () =>
 {
+    clearInterval(auto)
     auto = setInterval(() => {
         counter++
         carouselSlide.style.transition = 'transform 0.4s ease-in-out'
@@ -26,7 +29,6 @@ autoRun()
 
 let temporaryStop = () =>
 {
-    clearInterval(auto)
     setTimeout(() => {
         autoRun()
     }, 2000);
@@ -74,7 +76,8 @@ carouselSlide.addEventListener('transitionend', () =>
 
 window.addEventListener('resize', ()=>
 
-{    carouselSlide.style.transition = 'none'
+{   
+    // carouselSlide.style.transition = 'none'
     size = carouselImage[0].clientWidth
     carouselSlide.style.transform = `translate(` + (-size * counter) + 'px'
 })

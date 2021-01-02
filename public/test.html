@@ -106,7 +106,7 @@
 
                 </div>
                 <div class="plate"></div>
-
+              
                 <!-- <div class="space"></div> -->
                 <div class="projects">Projects</div>
                 <div class="activities">Activities</div>
@@ -185,6 +185,23 @@
 
     <footer class="footer">Created by Tim, December 2020</footer>
 
+    <svg>
+        <filter id="wavy">
+            <feTurbulence id='feturbulence' x='0' y='0' baseFrequency="0 0" numOctaves="500" seed='2' >
+                <animate attributeName='baseFrequency' dur='40s' values='0.02;0.005' repeatCount='indefinite'/>
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="30">
+        </filter>
+
+        <filter id="wave">
+            <feTurbulence id='feturbulence' x='0' y='0' baseFrequency="5" numOctaves="5" seed='1' >
+                <animate attributeName='baseFrequency' dur='8s' values='0.005;0.001;.005' repeatCount='indefinite'/>
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="30">
+        </filter>
+    </svg>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="./assets/script/slide.js"></script>
 </body>
 </html>
