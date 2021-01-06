@@ -18,6 +18,11 @@ nav
     z-index: 10;
     background: white;
 }
+
+svg
+{
+    display: none;
+}
 .navbar
 {
     display: grid;
@@ -669,8 +674,8 @@ section:hover .title::before
 {
     // box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
     margin: 10px 0 10px 0;
-    padding: 20px;
-    height: 30px;
+    padding: 15px;
+    height: 10px;
     white-space: nowrap;
     cursor: pointer;
 }
@@ -679,14 +684,61 @@ section:hover .title::before
 {
     box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
     color: black;
-    // background: b;acl;
     border-radius: 10px;
 }
 
+.toggle 
+{
+    box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+    color: black;
+    border-radius: 10px;
+}
 
+@keyframes social-media-animation
+{
+    from{height: 0vh;}
+    to{height: 50vh;}
+}
+.social-media
+{
+    position: fixed;
+    height: 50vh;
+    margin-left: auto;
+    right: 30px;
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    animation: social-media-animation 2s ease-out;
+}
+
+.top i
+{
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0;
+    transition: .1s ease-in-out;
+}
+
+.top i:hover
+{
+    color: green;
+    transform: translateY(-4px);
+}
+
+.bottom-line
+{
+    width: 1px;
+    flex: 1;
+    background: black;
+}
 .footer
 {
-    height: 10vh;
+    font-size: 14px;
+    height: 30px;
+    font-weight: lighter;
+    color: rgba(0, 0, 0, 0.6);
     text-align: center;
 }
 @media screen and (max-width : 650px)

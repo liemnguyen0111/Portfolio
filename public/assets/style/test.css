@@ -19,6 +19,10 @@ nav {
   background: white;
 }
 
+svg {
+  display: none;
+}
+
 .navbar {
   display: -ms-grid;
   display: grid;
@@ -708,8 +712,8 @@ section:hover .title::before {
 
 .company-list ul li {
   margin: 10px 0 10px 0;
-  padding: 20px;
-  height: 30px;
+  padding: 15px;
+  height: 10px;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -721,8 +725,84 @@ section:hover .title::before {
   border-radius: 10px;
 }
 
+.toggle {
+  -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+          box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+  color: black;
+  border-radius: 10px;
+}
+
+@-webkit-keyframes social-media-animation {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 50vh;
+  }
+}
+
+@keyframes social-media-animation {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 50vh;
+  }
+}
+
+.social-media {
+  position: fixed;
+  height: 50vh;
+  margin-left: auto;
+  right: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-animation: social-media-animation 2s ease-out;
+          animation: social-media-animation 2s ease-out;
+}
+
+.top i {
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 0 10px 0;
+  -webkit-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+}
+
+.top i:hover {
+  color: green;
+  -webkit-transform: translateY(-4px);
+          transform: translateY(-4px);
+}
+
+.bottom-line {
+  width: 1px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: black;
+}
+
 .footer {
-  height: 10vh;
+  font-size: 14px;
+  height: 30px;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.6);
   text-align: center;
 }
 
