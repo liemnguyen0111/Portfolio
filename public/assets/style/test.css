@@ -7,6 +7,8 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background: #ffffff;
+  -webkit-filter: saturate(10px);
+          filter: saturate(10px);
 }
 
 nav {
@@ -331,8 +333,8 @@ section:hover .title::before {
   max-width: 80%;
   min-width: 17rem;
   border-radius: 10px;
-  overflow: hidden;
   height: 350px;
+  overflow: hidden;
   margin: auto;
   text-align: center;
   z-index: 1;
@@ -390,14 +392,18 @@ section:hover .title::before {
 }
 
 .carousel-slide a img {
+  display: block;
   margin: auto;
   min-height: 100%;
   max-height: 100%;
   max-width: 70%;
+  min-width: 70%;
   border-radius: 10px;
   -webkit-transform: skewX(-5deg);
           transform: skewX(-5deg);
   pointer-events: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #prevBtn, #nextBtn {
@@ -453,6 +459,224 @@ section:hover .title::before {
   width: 100%;
   text-decoration: none;
   color: black;
+}
+
+.projectItems, .projectsMenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.projectsBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  white-space: nowrap;
+}
+
+.projectsBtn div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 120px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 0 10px 0 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px rgba(94, 104, 121, 0.288);
+          box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px rgba(94, 104, 121, 0.288);
+  cursor: pointer;
+}
+
+.projectsBtn div:hover {
+  background-color: black;
+  color: white;
+}
+
+.liner {
+  position: relative;
+  bottom: 0;
+  height: 25px;
+  width: 100%;
+}
+
+.liner::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 2px;
+  border-radius: 50px;
+  background: #a8a7a7;
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+  margin-left: var(--left);
+  -webkit-transform: var(--translateX);
+          transform: var(--translateX);
+}
+
+.liner::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 5px;
+  height: 24px;
+  background: rgba(168, 167, 167, 0.548);
+  -webkit-transform: translateX(60px) translate(-50%, -1px);
+          transform: translateX(60px) translate(-50%, -1px);
+  margin-left: var(--left);
+  -webkit-transition: var(--trans);
+  transition: var(--trans);
+  -webkit-animation: var(--projectBtn);
+          animation: var(--projectBtn);
+}
+
+.line {
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  bottom: 0;
+  background: #555555;
+  height: 1px;
+}
+
+.projects-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 75%;
+  min-height: 25rem;
+  padding-top: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: auto;
+}
+
+.projects-container .project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 16rem;
+  max-width: 16rem;
+  height: 20rem;
+  margin: 10px;
+  padding: 30px;
+  border-radius: 50px;
+  -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+          box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+  -webkit-filter: saturate(4);
+          filter: saturate(4);
+}
+
+.icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.icons .folder {
+  font-size: 35px;
+}
+
+.icons .link {
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.folder {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.project-title {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+}
+
+.date {
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 10px;
+}
+
+.project-description {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.tech-list {
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@-webkit-keyframes projectsBtn {
+  0% {
+    height: 20px;
+  }
+  80% {
+    height: 0;
+  }
+  100% {
+    height: 20px;
+  }
+}
+
+@keyframes projectsBtn {
+  0% {
+    height: 20px;
+  }
+  80% {
+    height: 0;
+  }
+  100% {
+    height: 20px;
+  }
 }
 
 .footer {

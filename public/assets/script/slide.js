@@ -58,14 +58,14 @@ nextBtn.addEventListener('click', e =>
 
 carouselSlide.addEventListener('transitionend', () =>
 {
-    if(carouselImage[counter].id === 'lastClone')
+    if(carouselImage[counter].id && carouselImage[counter].id === 'lastClone')
     {
         carouselSlide.style.transition = 'none'
         counter = carouselImage.length - counter
         carouselSlide.style.transform = `translate(` + (-size * counter) + 'px'
     }
 
-    if(carouselImage[counter].id === 'firstClone')
+    if(carouselImage[counter].id && carouselImage[counter].id === 'firstClone')
     {
         carouselSlide.style.transition = 'none'
         counter = carouselImage.length - 2
