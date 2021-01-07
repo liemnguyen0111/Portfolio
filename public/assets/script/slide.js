@@ -20,6 +20,12 @@ let autoRun = () =>
     clearInterval(auto)
     auto = setInterval(() => {
         counter++
+
+        if(counter > carouselImage.length)
+        {
+            counter = 1
+        }
+
         carouselSlide.style.transition = 'transform 0.4s ease-in-out'
         carouselSlide.style.transform = `translateX(${-size * counter}px)`
     }, 4000);

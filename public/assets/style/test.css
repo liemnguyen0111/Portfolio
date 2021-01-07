@@ -40,6 +40,7 @@ svg {
 }
 
 .logo {
+  font-family: 'Hanalei Fill', cursive;
   margin-left: 100px;
   font-size: 18px;
   font-weight: bolder;
@@ -271,8 +272,8 @@ svg {
 .subheader {
   font-size: 15px;
   font-weight: bold;
-  -webkit-transform: translateY(-12px) translateZ(-1);
-          transform: translateY(-12px) translateZ(-1);
+  -webkit-transform: translateY(-12px);
+          transform: translateY(-12px);
 }
 
 .right {
@@ -445,7 +446,7 @@ section:hover .title::before {
   height: 19rem;
   width: 13rem;
   margin: 10px;
-  font-size: 15px;
+  font-size: 13px;
   text-align: center;
   border-radius: 10px;
   -webkit-box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.288), 3px 3px 5px rgba(94, 104, 121, 0.288);
@@ -518,6 +519,11 @@ section:hover .title::before {
 }
 
 .projectsBtn div:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn-active {
   background-color: black;
   color: white;
 }
@@ -602,8 +608,39 @@ section:hover .title::before {
   border-radius: 50px;
   -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
           box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
-  -webkit-filter: saturate(4);
-          filter: saturate(4);
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+}
+
+.project:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.7), inset 3px 3px 5px rgba(221, 223, 226, 0.7);
+          box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.7), inset 3px 3px 5px rgba(221, 223, 226, 0.7);
+}
+
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: translate(-30px, 0) scale(0.5);
+            transform: translate(-30px, 0) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes play {
+  0% {
+    -webkit-transform: translate(-30px, 0) scale(0.5);
+            transform: translate(-30px, 0) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0) scale(1);
+            transform: translate(0, 0) scale(1);
+  }
 }
 
 .icons {
@@ -653,6 +690,10 @@ section:hover .title::before {
   color: rgba(0, 0, 0, 0.8);
 }
 
+.tech-list {
+  word-spacing: 5px;
+}
+
 .tech-list, .company-list ul {
   font-size: 13px;
   font-weight: lighter;
@@ -662,24 +703,38 @@ section:hover .title::before {
 @-webkit-keyframes projectsBtn {
   0% {
     height: 20px;
+    width: 5px;
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
   }
   80% {
     height: 0;
+    width: 1px;
   }
   100% {
     height: 20px;
+    width: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
   }
 }
 
 @keyframes projectsBtn {
   0% {
     height: 20px;
+    width: 5px;
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
   }
   80% {
     height: 0;
+    width: 1px;
   }
   100% {
     height: 20px;
+    width: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
   }
 }
 
@@ -753,6 +808,7 @@ section:hover .title::before {
 .social-media {
   position: fixed;
   height: 50vh;
+  width: 40px;
   margin-left: auto;
   right: 30px;
   -webkit-box-align: center;
@@ -766,12 +822,13 @@ section:hover .title::before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-animation: social-media-animation 2s ease-out;
-          animation: social-media-animation 2s ease-out;
+  -webkit-animation: social-media-animation 1s ease;
+          animation: social-media-animation 1s ease;
 }
 
 .top i {
   font-size: 25px;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -780,14 +837,46 @@ section:hover .title::before {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 10px 0 10px 0;
-  -webkit-transition: .1s ease-in-out;
-  transition: .1s ease-in-out;
+  -webkit-transition: .1s ease-out;
+  transition: .1s ease-out;
 }
 
 .top i:hover {
-  color: green;
-  -webkit-transform: translateY(-4px);
-          transform: translateY(-4px);
+  color: #ff8095;
+  -webkit-transform: translate(0px, -2px);
+          transform: translate(0px, -2px);
+  -webkit-animation: hue-rotate 2s infinite linear;
+          animation: hue-rotate 2s infinite linear;
+}
+
+@-webkit-keyframes hue-rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+}
+
+@keyframes hue-rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: hue-rotate(360deg);
+            filter: hue-rotate(360deg);
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+  }
 }
 
 .bottom-line {

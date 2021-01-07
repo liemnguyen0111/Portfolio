@@ -37,6 +37,7 @@ svg
 
 .logo
 {
+    font-family: 'Hanalei Fill', cursive;
     margin-left: 100px;
     font-size: 18px;
     font-weight: bolder;
@@ -229,7 +230,7 @@ svg
 {
     font-size: 15px;
     font-weight: bold;
-    transform: translateY(-12px)  translateZ(-1);
+    transform: translateY(-12px);
 }
 
 .right
@@ -422,7 +423,7 @@ section:hover .title::before
     height: 19rem;
     width: 13rem;
     margin: 10px;
-    font-size: 15px;
+    font-size: 13px;
     text-align: center;
     border-radius: 10px;
     box-shadow:  -3px -3px 7px  rgba(94,104,121,.288),  3px 3px 5px rgba(94,104,121,.288);
@@ -472,10 +473,15 @@ section:hover .title::before
     align-items: center;
     box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px rgba(94,104,121,.288);
     cursor: pointer;
-
 }
 
 .projectsBtn div:hover
+{
+    background-color: black;
+    color: white;
+}
+
+.btn-active 
 {
     background-color: black;
     color: white;
@@ -499,7 +505,6 @@ section:hover .title::before
     height: 2px;
     border-radius: 50px;
     background:rgb(168, 167, 167);
-    // left: var(--left);
     transition: var(--trans);
     margin-left: var(--left);
     transform: var(--translateX);
@@ -513,14 +518,10 @@ section:hover .title::before
     bottom: 0;
     width: 5px;
     height: 24px;
-    // border-radius: 50px;
     background:rgba(168, 167, 167, 0.548);
     transform: translateX(60px) translate(-50%,-1px);
-    // // left: var(--left);
     margin-left: var(--left);
-    // transform: var(--translateX);
     transition: var(--trans);
-    // transform: rotate(90deg);
     animation: var(--projectBtn);
 }
 
@@ -578,8 +579,26 @@ section:hover .title::before
     padding: 30px;
     border-radius: 50px;
     box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
-    // background:rgba(0, 0, 0, 0.356);
-    filter: saturate(4);
+    // filter: saturate(4);
+    transition: .2s ease-out;
+}
+
+.project:hover
+{
+    transform: scale(1.03);
+    box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.7), inset 3px 3px 5px rgba(221, 223, 226, 0.7);
+}
+
+@keyframes play 
+{
+    0%{
+        
+        transform: translate(-30px,0) scale(0.5);    
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0,0) scale(1);
+    }
 }
 
 .icons
@@ -628,6 +647,10 @@ section:hover .title::before
     color: rgba(0, 0, 0, 0.8);
 }
 
+.tech-list
+{
+    word-spacing: 5px;
+}
 .tech-list, .company-list ul
 {
     font-size: 13px;
@@ -637,9 +660,22 @@ section:hover .title::before
 
 @keyframes projectsBtn
 {
-    0%{ height: 20px;}
-    80%{ height: 0;}
-    100%{ height: 20px;}
+    0%{ 
+        height: 20px;
+        width: 5px;
+        border-top-left-radius: 500px;
+        border-top-right-radius: 500px;
+    }
+    80%{ 
+        height: 0;
+        width: 1px;
+       }
+    100%{ 
+        height: 20px;
+        width: 5px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
 }
 
 .graph
@@ -703,28 +739,45 @@ section:hover .title::before
 {
     position: fixed;
     height: 50vh;
+    width: 40px;
     margin-left: auto;
     right: 30px;
     align-items: center;
     bottom: 0;
     display: flex;
+    // background: green;
     flex-direction: column;
-    animation: social-media-animation 2s ease-out;
+    animation: social-media-animation 1s ease;
 }
 
 .top i
 {
     font-size: 25px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     margin: 10px 0 10px 0;
-    transition: .1s ease-in-out;
+    transition: .1s ease-out;
 }
 
 .top i:hover
 {
-    color: green;
-    transform: translateY(-4px);
+    color: rgb(255, 128, 149);
+    transform: translate(0px,-2px);
+    animation: hue-rotate 2s infinite linear;
+}
+
+@keyframes hue-rotate
+{
+    0%{
+        filter: hue-rotate(0deg); 
+    }
+    50%{
+        filter: hue-rotate(360deg); 
+    }
+    100%{
+        filter: hue-rotate(0deg); 
+    }
 }
 
 .bottom-line
