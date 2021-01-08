@@ -483,7 +483,7 @@ section:hover .title::before {
           justify-content: center;
 }
 
-.projectsBtn {
+.projectsBtn, .company-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -497,7 +497,7 @@ section:hover .title::before {
   white-space: nowrap;
 }
 
-.projectsBtn div {
+.projectsBtn div, .company-list div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -518,7 +518,7 @@ section:hover .title::before {
   cursor: pointer;
 }
 
-.projectsBtn div:hover {
+.projectsBtn :hover, .company-list :hover {
   background-color: black;
   color: white;
 }
@@ -535,37 +535,72 @@ section:hover .title::before {
   width: 100%;
 }
 
-.liner::before {
+.liner:before, .liner:after {
   content: '';
   display: block;
   position: absolute;
   bottom: 0;
-  width: 120px;
-  height: 2px;
-  border-radius: 50px;
-  background: #a8a7a7;
   -webkit-transition: var(--trans);
   transition: var(--trans);
   margin-left: var(--left);
-  -webkit-transform: var(--translateX);
-          transform: var(--translateX);
 }
 
-.liner::after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
+.liner:before {
+  width: 100px;
+  height: 4px;
+  background: black;
+  -webkit-transform: translateX(10px);
+          transform: translateX(10px);
+  border-top-left-radius: 500px;
+  border-top-right-radius: 500px;
+}
+
+.liner:after {
   width: 5px;
   height: 24px;
-  background: rgba(168, 167, 167, 0.548);
-  -webkit-transform: translateX(60px) translate(-50%, -1px);
-          transform: translateX(60px) translate(-50%, -1px);
-  margin-left: var(--left);
-  -webkit-transition: var(--trans);
-  transition: var(--trans);
-  -webkit-animation: var(--projectBtn);
-          animation: var(--projectBtn);
+  background: black;
+  -webkit-transform: translate(60px, -4px);
+          transform: translate(60px, -4px);
+  -webkit-animation: var(--projectBtnAfter);
+          animation: var(--projectBtnAfter);
+}
+
+@-webkit-keyframes projectBtnAfter {
+  0% {
+    height: 20px;
+    width: 5px;
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
+  }
+  80% {
+    height: 0;
+    width: 1px;
+  }
+  100% {
+    height: 20px;
+    width: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+}
+
+@keyframes projectBtnAfter {
+  0% {
+    height: 20px;
+    width: 5px;
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
+  }
+  80% {
+    height: 0;
+    width: 1px;
+  }
+  100% {
+    height: 20px;
+    width: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
 }
 
 .line {
@@ -573,7 +608,7 @@ section:hover .title::before {
   width: 90%;
   left: 5%;
   bottom: 0;
-  background: #555555;
+  background: #9e9e9e;
   height: 1px;
 }
 
@@ -612,11 +647,56 @@ section:hover .title::before {
   transition: .2s ease-out;
 }
 
-.project:hover {
+.projects-container .project .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.projects-container .project .icons a {
+  width: 20px;
+  pointer-events: none;
+  right: 0;
+}
+
+.projects-container .project .icons .link {
+  font-size: 20px;
+  font-weight: bolder;
+  pointer-events: auto;
+}
+
+.projects-container .project .icons .folder {
+  font-size: 35px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.projects-container .project .tech-list {
+  word-spacing: 5px;
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.projects-container .project:hover {
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
   -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.7), inset 3px 3px 5px rgba(221, 223, 226, 0.7);
           box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.7), inset 3px 3px 5px rgba(221, 223, 226, 0.7);
+}
+
+.project-title, .company-title {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
 }
 
 @-webkit-keyframes play {
@@ -643,38 +723,6 @@ section:hover .title::before {
   }
 }
 
-.icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.icons .folder {
-  font-size: 35px;
-}
-
-.icons .link {
-  font-size: 20px;
-  font-weight: bolder;
-  cursor: pointer;
-}
-
-.folder {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.project-title, .company-title {
-  margin-top: 20px;
-  font-weight: bold;
-  font-size: 15px;
-  color: black;
-}
-
 .date {
   font-size: 13px;
   font-weight: lighter;
@@ -690,54 +738,6 @@ section:hover .title::before {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.tech-list {
-  word-spacing: 5px;
-}
-
-.tech-list, .company-list ul {
-  font-size: 13px;
-  font-weight: lighter;
-  color: rgba(0, 0, 0, 0.6);
-}
-
-@-webkit-keyframes projectsBtn {
-  0% {
-    height: 20px;
-    width: 5px;
-    border-top-left-radius: 500px;
-    border-top-right-radius: 500px;
-  }
-  80% {
-    height: 0;
-    width: 1px;
-  }
-  100% {
-    height: 20px;
-    width: 5px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-  }
-}
-
-@keyframes projectsBtn {
-  0% {
-    height: 20px;
-    width: 5px;
-    border-top-left-radius: 500px;
-    border-top-right-radius: 500px;
-  }
-  80% {
-    height: 0;
-    width: 1px;
-  }
-  100% {
-    height: 20px;
-    width: 5px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-  }
-}
-
 .graph {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -746,45 +746,114 @@ section:hover .title::before {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-left: 20%;
   min-height: 300px;
+  overflow: hidden;
+}
+
+.graph .company-info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-right: 50px;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-animation: var(--compPlay);
+          animation: var(--compPlay);
+}
+
+.graph .company-info ul {
+  word-wrap: wrap;
+}
+
+.graph .company-info ul li {
+  word-wrap: wrap;
+}
+
+@-webkit-keyframes compPlay {
+  0% {
+    opacity: .7;
+    height: var(--currentHeight);
+    -webkit-transform: translate(-5px, -5px) scale(1.1);
+            transform: translate(-5px, -5px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px) scale(1);
+            transform: translate(0px, 0px) scale(1);
+    height: var(--newHeight);
+  }
+}
+
+@keyframes compPlay {
+  0% {
+    opacity: .7;
+    height: var(--currentHeight);
+    -webkit-transform: translate(-5px, -5px) scale(1.1);
+            transform: translate(-5px, -5px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0px, 0px) scale(1);
+            transform: translate(0px, 0px) scale(1);
+    height: var(--newHeight);
+  }
+}
+
+@-webkit-keyframes txtPlay {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-5px, -5px);
+            transform: translate(-5px, -5px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0px);
+            transform: translate(0, 0px);
+  }
+}
+
+@keyframes txtPlay {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-5px, -5px);
+            transform: translate(-5px, -5px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0px);
+            transform: translate(0, 0px);
+  }
 }
 
 .vertical-line {
-  width: 2px;
+  position: relative;
+  width: 4px;
   min-height: 300px;
   max-height: 100%;
-  background: black;
+  background: #9e9e9e;
   margin: 0 20px 0 20px;
 }
 
-.company-list ul {
-  list-style: none;
-  text-align: end;
+.vertical-line2 {
+  position: absolute;
+  width: 4px;
+  height: 30px;
+  background: #020202;
 }
 
-.company-list ul li {
+.company-list {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.company-list div {
+  border-style: none;
+  width: 220px;
+  height: 30px;
   margin: 10px 0 10px 0;
-  padding: 15px;
-  height: 10px;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.company-list ul li:hover {
-  -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
-          box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
-  color: black;
-  border-radius: 10px;
-}
-
-.toggle {
-  -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
-          box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
-  color: black;
-  border-radius: 10px;
 }
 
 @-webkit-keyframes social-media-animation {
@@ -818,6 +887,7 @@ section:hover .title::before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -826,7 +896,7 @@ section:hover .title::before {
           animation: social-media-animation 1s ease;
 }
 
-.top i {
+.social-media .top i {
   font-size: 25px;
   text-align: center;
   display: -webkit-box;
@@ -841,12 +911,20 @@ section:hover .title::before {
   transition: .1s ease-out;
 }
 
-.top i:hover {
+.social-media .top i:hover {
   color: #ff8095;
-  -webkit-transform: translate(0px, -2px);
-          transform: translate(0px, -2px);
+  -webkit-transform: translate(0px, -3px);
+          transform: translate(0px, -3px);
   -webkit-animation: hue-rotate 2s infinite linear;
           animation: hue-rotate 2s infinite linear;
+}
+
+.social-media .bottom-line {
+  width: 1px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: black;
 }
 
 @-webkit-keyframes hue-rotate {
@@ -877,14 +955,6 @@ section:hover .title::before {
     -webkit-filter: hue-rotate(0deg);
             filter: hue-rotate(0deg);
   }
-}
-
-.bottom-line {
-  width: 1px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  background: black;
 }
 
 .footer {

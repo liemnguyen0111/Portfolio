@@ -115,7 +115,7 @@
                 <div class="projectItems">
                     <div class="projectsMenu">
                         <div class="projectsBtn">
-                            <div class="Btn1" data-name='Project'>Projects</div>
+                            <div class="Btn1 btn-active" data-name='Project'>Projects</div>
                             <div class="Btn2" data-name='Activity'>Activities</div>
                         </div>
                        <div class="liner">
@@ -132,37 +132,23 @@
         </section>
 
         <section class="experiences" id="experiences">
-            <div class="title header">Where I've Worked</div>
+            <div class="title header">Experiences</div>
 
             <div class="content">
                 <div class="graph">
                     <div class="company">
-                        <div class="company-list">
-                            <ul>
-                                <li class="toggle">POWER Engineers</li>
-                                <li>FJS Cable Engineer</li>
-                                <li>Office Depot</li>
-                            </ul>
-                        </div>  
-                        
+                        <div class="company-list"></div>  
                     </div>
-                    <div class="vertical-line"></div>
-                    <div class="company-info">
-                        <div class="company-title">POWER Engineers</div>
-                        <div class="range date">October 2018 - March 2020 * 1 yr 6 mos</div>
-
-                        <div class="work-description">
-                            <ul>
-                                <li>Drafting on substation projects that include physical and civil layout drawings as well as schematics and wiring diagrams.</li>
-                                <li>Prepare new drawings and revise existing engineering drawings of basic components from specific sketches or layouts.</li>
-                                <li>Responsible for adhering to company and client drafting standards and procedures.</li>
-                                <li>Assist in drafting design and documentation for various projects.</li>
-                                <li>Assist with tasks utilizing standard drafting detail programs.</li>
-                                <li>Assist in continuous drafting detail improvement efforts.</li>
-                            </ul>
-                        </div>
+                    
+                    <div class="vertical-line">
+                        <div class="vertical-line2"></div>
                     </div>
+                    <div class="company-info"></div>
                 </div>
+            </div>
+
+            <!-- <div class="skills" style='height: 500px; background: green'> -->
+                
             </div>
         </section>
 
@@ -240,7 +226,7 @@
     <svg>
         <filter id="wavy">
             <feTurbulence id='feturbulence' x='0' y='0' baseFrequency="0 0" numOctaves="500" seed='2' >
-                <animate attributeName='baseFrequency' dur='40s' values='0.02;0.005' repeatCount='indefinite'/>
+                <animate attributeName='baseFrequency' dur='40s' values='0.001;0.005' repeatCount='indefinite'/>
             </feTurbulence>
             <feDisplacementMap in="SourceGraphic" scale="30">
         </filter>
@@ -256,5 +242,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="./assets/script/slide.js"></script>
     <script src="./assets/script/projects.js"></script>
+    <script src="./assets/script/experiences.js"></script>
 </body>
 </html>

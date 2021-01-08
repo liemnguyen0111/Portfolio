@@ -28,7 +28,7 @@ const projects = [
         type: 'Activity',
         name: 'Workout Tracker !',
         date: 'July 8th, 2020',
-        description: 'Starry Station android app feature that provided users with the ability to easily filter content, pause the internet, and even create custom rules for blocking apps like Facebook and Twitter right from their phones.',
+        description: 'As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.',
         techList: 'HTML CSS JS NodeJS Express',
         link: 'https://uci-cache.herokuapp.com/'
     }
@@ -36,15 +36,6 @@ const projects = [
 ]
 
 let current = 'Project'
-let check = (button) =>
-{       
-            const linerAfter = document.querySelector('.liner')
-            const btn = document.querySelector(`.${button.className}`)
-            linerAfter.style.setProperty('--projectBtn', `none`)
-            let left = btn.getBoundingClientRect().left 
-            linerAfter.style.setProperty('--left', `${left - 50}px`)
-            document.querySelector(`[data-name = ${current}]`).classList.add('btn-active')
-}
 
 buttons.forEach(button =>
     {
@@ -54,26 +45,26 @@ buttons.forEach(button =>
             {
                 const linerAfter = document.querySelector('.liner')
                 const btn = document.querySelector(`.${button.className}`)
-                linerAfter.style.setProperty('--projectBtn', `none`)
+                linerAfter.style.setProperty('--projectBtnAfter', `none`)
                 linerAfter.style.setProperty('--trans', `1s ease`)
                 let left = btn.getBoundingClientRect().left 
-                linerAfter.style.setProperty('--projectBtn', `projectsBtn 1s`)
+                linerAfter.style.setProperty('--projectBtnAfter', `projectBtnAfter 1s ease-out`)
                 linerAfter.style.setProperty('--left', `${left - 50}px`)
-                changeActive(button)
-                show(button.dataset.name)   
+                changeActive(button.dataset.name,current)
+                current = button.dataset.name
+                pShow(button.dataset.name)   
             }
            
         })
     })
 
-const changeActive = (button) =>
+const changeActive = (button, c) =>
 {
-    document.querySelector(`[data-name = ${button.dataset.name}]`).classList.add('btn-active')
-    document.querySelector(`[data-name = ${current}]`).classList.remove('btn-active')
-    current = button.dataset.name
+    document.querySelector(`[data-name = ${c}]`).classList.remove('btn-active')
+    document.querySelector(`[data-name = ${button}]`).classList.add('btn-active')
 }
 
-let show = (type) =>
+let pShow = (type) =>
 {
     let info = projects.filter((project, acc) =>
         {
@@ -87,19 +78,19 @@ let show = (type) =>
             let newNode = document.createElement('div')
             newNode.style.opacity = 0
             newNode.style.animation = `play 1s ease forwards ${index / 7 + .3}s`
-            newNode.innerHTML = projectTemplate(item)
+            newNode.innerHTML = pTemplate(item)
             content.appendChild(newNode)
         })
     
 }    
 
-let projectTemplate = (info) =>
+let pTemplate = (info) =>
 {
     return ` 
     <div class="project">
     <div class="icons">
         <i class="far fa-folder folder"></i>
-        <i class="fas fa-external-link-alt link"></i>
+        <a target='_blank' href='${info.link}'><i class="fas fa-external-link-alt link"></i></a>
     </div>
     
     <div class="project-title">${info.name}</div>
@@ -114,16 +105,21 @@ let projectTemplate = (info) =>
     `
 }
 
+let pCheck = () =>
+{       
+    const linerAfter = document.querySelector('.liner')
+    const btn = document.querySelector(`[data-name = ${current}]`)
+    linerAfter.style.setProperty('--projectBtnAfter', `none`)
+    let left = btn.getBoundingClientRect().left 
+    linerAfter.style.setProperty('--trans', `none`)
+    linerAfter.style.setProperty('--left', `${left - 50}px`)    
+
+}
 
 window.addEventListener('resize', ()=>
 {   
-    const linerAfter = document.querySelector('.liner')
-    const btn = document.querySelector(`[data-name = ${current}]`)
-    linerAfter.style.setProperty('--projectBtn', `none`)
-    let left = btn.getBoundingClientRect().left 
-    linerAfter.style.setProperty('--trans', `none`)
-    linerAfter.style.setProperty('--left', `${left - 50}px`)
+    pCheck()
 })
 
-check(buttons[0])
-show('Project')
+pCheck()
+pShow('Project')
