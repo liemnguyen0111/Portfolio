@@ -56,7 +56,7 @@ const companies = [
     },
     {
         name: 'Orange Coast College',
-        range: 'September 2015 - December 2017 * 2 yr 3 mos',
+        range: 'September 2015 - December 2017 * 2 yrs 3 mos',
         description: [
             `Undergraduate major in Computer Science.`
         ],
@@ -143,7 +143,6 @@ let genCompList = (list) =>
     })
     compCurrent = companies[0].name.split(' ')[0]
     compListBtn = document.querySelectorAll('.company-list div')
-    console.log(compListBtn[0])
     eCheck(compListBtn[0],0)
     eEventListener()
 }

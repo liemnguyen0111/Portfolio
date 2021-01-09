@@ -91,13 +91,27 @@ svg
     // align-items: center;
     justify-content: center;
     top: 50%;
+
+    .intro div:nth-child(1)
+    {
+        font-size: 20px;
+    }
+
+    .intro div:nth-child(2)
+    {
+        font-size: 30px;
+    }
+
+    .intro div:nth-child(3)
+    {
+        font-size: 25px;
+    }
 }
 
 .left .btn 
 {
     display: flex;
     flex-direction: row;
-  
 }
 
 
@@ -109,7 +123,7 @@ svg
     font-size: 13px;
     font-weight: bold;
     border-radius: 10px;
-    margin: 0 10px 0 10px;
+    margin: 10px;
     justify-content: center;
     align-items: center;
     box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px rgba(94,104,121,.288);
@@ -132,7 +146,7 @@ svg
     border-radius: 10px;
     margin: auto;
     transform: translateY(-100px);
-    pointer-events: none;
+    // pointer-events: none;
     filter: grayscale(100%);
     scroll-margin-top: 100px;
 }
@@ -213,6 +227,7 @@ svg
     word-wrap: break-word;
     margin: 10px;
     font-size: 15px;
+    color : rgba(0, 0, 0, 0.8);
 }
 
 .bio div
@@ -427,12 +442,13 @@ section:hover .title::before
     text-align: center;
     border-radius: 10px;
     box-shadow:  -3px -3px 7px  rgba(94,104,121,.288),  3px 3px 5px rgba(94,104,121,.288);
-    filter: grayscale(60%);
+    // filter: grayscale(60%);
+    
 }
 
 .card:hover
 {
-    filter: grayscale(0);
+    filter: url(#wavy) grayscale(60%);
 }
 .card img, a
 {
@@ -623,7 +639,7 @@ section:hover .title::before
     }
 }
 
-.project-title, .company-title
+.project-title, .company-title, .recent-tech
 {
     margin-top: 20px;
     font-weight: bold;
@@ -677,7 +693,6 @@ section:hover .title::before
     .company-info ul 
     {
         word-wrap: wrap;
-        // list-style-image: url('../images/anchor.png') ;
     }
 
     .company-info ul li
@@ -749,6 +764,38 @@ section:hover .title::before
     }
 }
 
+
+.skills
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 50px;
+    text-align: center;
+    overflow: hidden;
+
+    .recent-tech
+    {
+        border-top: 1px solid black;
+        border-bottom: 1px dotted black;
+        
+    }
+
+    div i
+    {
+        margin: 15px;
+        font-size: 30px;
+        transition: all .2s ease;
+        overflow: hidden;
+        
+        &:hover
+        {
+            transform: scale(1.3);
+        }
+    }
+
+}
 // .toggle 
 // {
 //     box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
@@ -756,16 +803,171 @@ section:hover .title::before
 //     border-radius: 10px;
 // }
 
+.form
+{
+    margin: 0 auto 0 auto;
+}
+.contact-form
+{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    margin: 50px 80px 0 80px;
+    padding: 30px;
+    max-width: 700px;
+    justify-content: center;
+    box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+    border-radius: 55px;
+    background:rgba(168, 167, 167, 0.1) ;
+
+    div:nth-child(1)
+    {
+        font-size: 25px;
+        margin: 0 5px 0 5px;
+    }
+
+    div:nth-child(2)
+    {
+        margin: 0 5px 0 5px;
+        font-size: 15px;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .input
+    {
+        display: flex;
+        
+
+        textarea
+        {
+            min-height: 100px;
+            font-family: 'Poppins', sans-serif;
+        }
+        input, textarea
+        {
+            flex: 1;
+            margin: 5px;
+            border-radius: 20px;
+            border: none;
+            box-shadow:  -3px -3px 7px rgba(94, 104, 121, 0.288),  3px 3px 5px rgba(221, 223, 226, 0.288);
+            padding: 8px;
+
+            &:active
+            {
+                outline: none;
+
+            }
+
+            &:focus
+            {
+                box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288);
+                outline: none;
+                
+                &::-webkit-input-placeholder
+                {
+                    color: white;
+                }
+            }
+
+            &:hover
+            {
+                box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288);
+                outline: none;
+            }
+
+           
+        }
+
+        overflow: hidden;
+        input[type=text] {
+            overflow: hidden;
+            word-wrap: break-word;
+            word-break: break-all;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .message
+        {
+            height: 100px;
+        }
+    }
+
+    button
+    {
+        margin: 5px 5px 5px auto;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        background: white;
+        border: none;
+        box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+        cursor: pointer;
+        font-family: 'Hanalei Fill', cursive;
+        font-size: 15px;
+        font-weight: bolder;
+        // filter: url(#wave);
+        &:active
+        {
+            &:active
+            {
+                box-shadow:  -3px -3px 7px rgba(119, 132, 155, 0.5),  3px 3px 5px rgba(221, 223, 226, 0.5),
+                inset -3px -3px 7px rgba(94, 104, 121, 0.288), inset 3px 3px 5px rgba(221, 223, 226, 0.288);
+                transform: scale(.9);
+                outline: 0;
+            }
+            outline: 0;
+        }
+
+        &:focus
+        {
+            outline: 0;
+        }
+    }
+//     .message
+//     {
+//         display: block;
+//         height: 100px;
+//         width: 1000px;
+//     }
+
+
+//    .input   
+//    {
+//        display: flex;
+//        margin: 10px 0 10px 0;
+//        label
+//        {
+//            width: 150px;
+//            word-wrap: none;
+//            white-space: nowrap;
+//        }
+
+     
+//        input
+//        {
+//             margin: 0 auto 0 0;
+//             // width: 100%;
+//        }
+
+//        .message
+//        {
+
+//        }
+      
+//    }
+}
+
+
 @keyframes social-media-animation
 {
-    from{height: 0vh;}
-    to{height: 50vh;}
+    from{height: 0;}
+    to{height: 400px;}
 }
 
 .social-media
 {
     position: fixed;
-    height: 50vh;
+    height: 400px;
     width: 40px;
     margin-left: auto;
     right: 30px;
@@ -796,9 +998,26 @@ section:hover .title::before
 
     .bottom-line
     {
+        // position: relative;
         width: 1px;
         flex: 1;
         background: black;
+        overflow: hidden;
+        &::before
+        {
+            content: 'timm.nt0111@gmail.com';
+            display: block;
+            top: 50px;
+            right: 50px;
+            margin-top: 50px;
+            margin-right: 100px;
+            left: 0;
+            white-space: nowrap;
+            // word-break: none;
+            // display: flex;
+            // flex-direction: row;
+            transform: rotate(90deg) translate(0, -12px);
+        }
     }
 }
 

@@ -21,7 +21,7 @@
                     <li> <a href="#navbar">Home</a></li>
                     <li> <a href="#about">About</a></li>
                     <li> <a href="#projects">Projects</a></li>
-                    <li>Contact</li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -34,9 +34,9 @@
         <!-- Left section -->
         <div class="left">
             <div class="intro">
-                <h3>Hello,</h3>
-                <h1>I'm <span>Tim</span> </h1>
-                <h2>I am a Software Engineer & Designer</h2>
+                <div>Hello,</div>
+                <div>I'm <span>Tim</span> </div>
+                <div>I am a Software Engineer & Designer</div>
             </div>
 
            <div class="btn">
@@ -146,10 +146,6 @@
                     <div class="company-info"></div>
                 </div>
             </div>
-
-            <!-- <div class="skills" style='height: 500px; background: green'> -->
-                
-            </div>
         </section>
 
         <section class="achivement" id="achivement">
@@ -211,6 +207,58 @@
                 </div>
             </div> 
         </section>
+
+         <!-- Recent tech -->
+    <div class="skills">
+        <div class="recent-tech">Here are a few technologies I've been working with recently:</div>
+        <div>
+            <i class="fab fa-js-square" title="Javascript"></i>
+            <i class="fab fa-html5"  title="HTML5"></i>
+            <i class="fab fa-css3-alt" title="CSS3"></i>
+            <i class="fab fa-bootstrap" title="Bootstrap"></i>
+        </div>
+        <div>
+            <i class="fab fa-figma" title="Figma"></i>
+            <i class="fab fa-react" title="React.js"></i>
+            <i class="fab fa-node-js" title="Node.js & Express"></i>
+        </div>
+        <div>
+            <i class="fas fa-database" title="Databases - MySQL/MongoDB"></i>
+            
+            <i class="fab fa-git" title="Git-Command"></i>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+ 
+        <div class="form" id="contact">
+            <form class="contact-form" id='contact-form'>
+                <div >CONTACT ME</div>
+                <div>Let me know your questions, suggestions and concerns by filling out the contact below.</div>
+        
+                <div class="input">
+                    <input type="text" name="firstName" placeholder="First Name (required)*">
+                    <input type="text" name="lastName" placeholder="Last Name (required)*">
+                </div>
+               
+                <div class="input">
+                    <input type="text" name='email' placeholder="e.g, tim@gmail.com (required)*">
+                </div>
+        
+                <div class="input">
+                    <input type="text" name='phone' placeholder="Mobile (Optional) - ###-###-####">  
+                </div>
+        
+                <div class="input">
+                    <!-- <input type="text" placeholder="Your Message (required)*" class="message"> -->
+                    <textarea rows="2" cols="20" name="message" placeholder="Your Message" wrap="hard"></textarea>
+                </div>
+               
+               
+                <button>SUBMIT</button>
+            </form>
+        </div>
+       
     </div>
 
     <div class="social-media">
@@ -221,6 +269,9 @@
         </div>
         <div class="bottom-line"></div>
     </div>
+
+   
+
     <footer class="footer">Designed & Built by Tim Nguyen</footer>
 
     <svg>
@@ -243,5 +294,6 @@
     <script src="./assets/script/slide.js"></script>
     <script src="./assets/script/projects.js"></script>
     <script src="./assets/script/experiences.js"></script>
+    <script src="./assets/script/contact.js"></script>
 </body>
 </html>
