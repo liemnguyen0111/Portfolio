@@ -1,18 +1,30 @@
+
 document.getElementById('contact-form').addEventListener('submit', e =>
 {
     e.preventDefault()
-    console.log(
-        e.target.firstName.value,
-        e.target.lastName.value,
-        e.target.email.value,
-        e.target.phone.value,
-        e.target.message.value
-        )
-
-        e.target.reset()
-        let div = document.querySelectorAll('.contact-form div')
-        div[0].innerHTML = 'Thank you, your message has been sent !'
-        div[0].style.animation = 'compPlay 1s'
-        div[1].style.opacity = 0
-        console.log(div[0])
+    let info = {
+        firstName:   e.target.firstName.value,
+        lastName:  e.target.lastName.value,
+        company : e.target.company.value,
+        email : e.target.email.value,
+        phone:   e.target.phone.value,
+        message : e.target.message.value,
+    }
+    document.querySelector('.loader').style.display = 'block'
+    let div = document.querySelectorAll('.contact-form div')
+    // div[0].innerHTML = `<img src="./assets/testimage/91.gif" alt="">`
+    div[1].style.opacity = 0
+        axios.post("/send", info)
+        .then( () =>
+            {
+                document.querySelector('.loader').style.display = 'none'
+                div[0].innerHTML = 'Thank you, your message has been sent !'
+                div[0].style.animation = 'compPlay 1s'
+                e.target.reset()
+            })
+        .catch( err =>
+            {
+                console.log(err)
+            })
+            
 })

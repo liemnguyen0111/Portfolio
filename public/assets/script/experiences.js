@@ -3,6 +3,7 @@ let compListBtn = []
 const companies = [
     {
         name: 'UCI - Division of Continuing Education (Bootcamp)',
+        sName: 'UCI',
         range: 'April 2020 - July 2020 * 3 mos',
         subOpening :  
         `Full-time web developer training program with key skills for web 
@@ -20,6 +21,7 @@ const companies = [
     },
     {
         name: 'POWER Engineers',
+        sName: 'POWER',
         range: 'October 2018 - March 2020 * 1 yr 6 mos',
         description: [
             `
@@ -37,6 +39,7 @@ const companies = [
     },
     {
         name: 'F.J.S. Cable Engineering, INC.',
+        sName: 'F.J.S',
         range: 'Febuary 2018 - Nov 2018 * 10 mos',
         description: [
             `Communicate with customers and supervisor to determine technical requirements regarding new project for preliminary cable design.`,
@@ -56,9 +59,11 @@ const companies = [
     },
     {
         name: 'Orange Coast College',
+        sName: 'OCC',
         range: 'September 2015 - December 2017 * 2 yrs 3 mos',
         description: [
-            `Undergraduate major in Computer Science.`
+            `Undergraduate major in Computer Science.`,
+            `Good Understanding of C++, Java and Data structure`
         ],
         link: 'https://prod.orangecoastcollege.edu/'
     }
@@ -70,11 +75,25 @@ let compCurrent = 'UCI',
 
     let eCheck = (button, index) =>
     {       
-        const vLine = document.querySelector('.vertical-line2')
-        let mTop = getElmTop(button)
-        vLine.style.margin = `${getAllPrevBtnHeight(index) + mTop}px 0 0 0`
-        changeActive(button.dataset.name,compCurrent)
-        compCurrent = button.dataset.name        
+        if(window.innerWidth > 650)
+        {
+            const vLine = document.querySelector('.vertical-line2')
+            let mTop = getMargin(button, 'top')
+            vLine.style.margin = `${getAllPrevBtnHeight(index) + mTop}px 0 0 0`
+            changeActive(button.dataset.name,compCurrent)
+            compCurrent = button.dataset.name  
+        }
+
+        if(window.innerWidth < 650)
+        {
+            const vLine = document.querySelector('.vertical-line2')
+            let mLeft = getMargin(button, 'left')
+            vLine.style.margin = ` 0 0 0 ${100 * index}px`
+            changeActive(button.dataset.name,compCurrent)
+            compCurrent = button.dataset.name  
+        }
+
+            
     }
 
     
@@ -95,9 +114,9 @@ let compCurrent = 'UCI',
             .reduce((prev, cur) => prev + cur)
     }
 
-    function getElmTop(node) {
+    function getMargin(node, position) {
         const list = [
-            'margin-top'
+            `margin-${position}`
         ]
     
         const style = window.getComputedStyle(node)
@@ -132,13 +151,16 @@ let eShow = (comp) =>
 let genCompList = (list) =>
 {
     let compList = document.querySelector('.company-list')
+    compList.innerHTML = ''
+    let width = window.innerWidth < 650
+
     list.forEach((item, index) =>
     {
         let newNode = document.createElement('div')
         newNode.className = `Btn${index}`
         let name = item.name.split(' ')[0].replace(/\./g, "")
         newNode.dataset.name = name
-        newNode.innerHTML = name !== 'UCI'? item.name : name
+        newNode.innerHTML = width ? item.sName : name === 'UCI'? name : item.name
         compList.appendChild(newNode)
     })
     compCurrent = companies[0].name.split(' ')[0]
@@ -203,6 +225,10 @@ let eEventListener = () =>
     })
 }
 
+window.addEventListener('resize', e =>
+{
+    genCompList(companies)
+})
 genCompList(companies)
 eShow(companies[0])
 

@@ -43,13 +43,15 @@ buttons.forEach(button =>
         {      
             if(button.dataset.name != current)
             {
+                let width = window.innerWidth < 650
                 const linerAfter = document.querySelector('.liner')
                 const btn = document.querySelector(`.${button.className}`)
                 linerAfter.style.setProperty('--projectBtnAfter', `none`)
                 linerAfter.style.setProperty('--trans', `1s ease`)
                 let left = btn.getBoundingClientRect().left 
                 linerAfter.style.setProperty('--projectBtnAfter', `projectBtnAfter 1s ease-out`)
-                linerAfter.style.setProperty('--left', `${left - 50}px`)
+                linerAfter.style.setProperty('--left', `${left - (width? 10 : 50)}px`)  
+                console.log(width)
                 changeActive(button.dataset.name,current)
                 current = button.dataset.name
                 pShow(button.dataset.name)   
@@ -107,12 +109,14 @@ let pTemplate = (info) =>
 
 let pCheck = () =>
 {       
+    let width = window.innerWidth < 650
+    console.log(width)
     const linerAfter = document.querySelector('.liner')
     const btn = document.querySelector(`[data-name = ${current}]`)
     linerAfter.style.setProperty('--projectBtnAfter', `none`)
     let left = btn.getBoundingClientRect().left 
     linerAfter.style.setProperty('--trans', `none`)
-    linerAfter.style.setProperty('--left', `${left - 50}px`)    
+    linerAfter.style.setProperty('--left', `${left - (width? 10 : 50)}px`)    
 
 }
 
@@ -120,6 +124,34 @@ window.addEventListener('resize', ()=>
 {   
     pCheck()
 })
+
+// 
+window.addEventListener('scroll', e =>
+{
+    // console.log(e)
+})
+
+let navCheck = (entries) => {
+    entries.forEach(entry =>
+        {
+            console.log(entry.target.className)
+        })
+}
+
+let sects = document.querySelectorAll('section')
+const options = {
+    threshold : .3
+}
+let observer = new IntersectionObserver(navCheck, options)
+
+
+
+
+
+sects.forEach( section =>
+    {
+        observer.observe(section)
+    })
 
 pCheck()
 pShow('Project')
