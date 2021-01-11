@@ -10,7 +10,7 @@ app.use(express.json())
 // Telling app to use route in folder routes
 app.use(require("./routes"));
 
-const PORT = 3000 || process.env.PORT 
+const PORT = process.env.PORT  || 3000
 
-app.listen( PORT, () => console.log('http://localhost:3000'))
+app.listen( PORT, () => console.log(PORT))
 
