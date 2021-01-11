@@ -34,6 +34,11 @@ svg
     overflow: hidden;
     white-space: nowrap;
     z-index: 10;
+
+    .burger
+    {
+        display: none;
+    }
 }
 
 .logo
@@ -196,7 +201,7 @@ svg
 // }
 
 
-.about
+.about-me
 {
     display: flex;
     padding: 50px;
@@ -212,7 +217,7 @@ svg
     scroll-margin-top: 100px;
 }
 
-.about:hover
+.about-me:hover
 {
     filter: grayscale(0%);
 }
@@ -1156,6 +1161,7 @@ section:hover .title::before
         width: 1px;
         flex: 1;
         background: black;
+        transition: all 1s ease;
         overflow: hidden;
         &::before
         {
@@ -1201,16 +1207,109 @@ section:hover .title::before
 {
     .navbar
     {
-        grid-template-columns: 1fr;
+        display: flex;
+        height: auto;
+        justify-content: center;
+        align-items: center;
         text-align: center;
+        position: relative;
+        flex-direction: column;
+        min-height: 50px;
+
+        .menu
+        {
+            display: none;
+            flex-direction: column;
+            margin: 0;
+            height: var(--nHeight);
+            transition: 1s ease;
+            .navlinks
+            {
+                flex-direction: column;
+                padding: 0;
+        
+
+                li
+                {
+                    margin: 0;
+                }
+            }
+           
+        }
+        .burger
+    {
+        display: block;
+        position: absolute;
+        // bottom: 50px;
+        top: 15px;
+        right: 15px;
+        height: 29px;
+        width: 35px;
+        cursor: pointer; 
+        background: transparent;
+        transform: scale(1);
+        z-index: 6;
+
+         div
+    {   
+        width: 35px;
+        height: 3px;
+        background:  rgba(45, 47, 49, 0.822);
+        margin: 5px 0px 5px 0px;
+        transition: all 0.3s ease;
+    }   
     }
+
+    }
+
+    // active or deactive on toggle
+.toggle .line1
+{
+    transform: rotate(-45deg) translate(-5px, 6px);
+
+}
+
+.toggle .line2
+{
+    opacity: 0;
+}
+
+.toggle .line3
+{
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@keyframes navLinkFade
+{
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+    @keyframes menu
+    {
+        from{
+            height: 0;
+        }
+        to{
+            height: var(--nHeight);
+        }
+    }
+
     .logo
     {
-        margin: 0;
-    }
-    .menu
-    {
-        display: none;
+     
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 0 0;
+        height: 40px;
     }
 
     .hero-wrapper
@@ -1235,7 +1334,7 @@ section:hover .title::before
         display: none;
     }
 
-    .about
+    .about-me
     {
         flex-direction: column;
         display: flex;
@@ -1500,7 +1599,7 @@ section:hover .title::before
         transform: translate(0, 0px);
     }
 }
-.scrollTop
+.scrollTopM
 {
     display: flex;
     position: fixed;  
@@ -1511,13 +1610,53 @@ section:hover .title::before
     height: 40px;
     width: 40px;
     // border: 1px solid black;
-    right: 10px;
-    bottom: 30px;
+    right: -10px;
+    bottom: 120px;
     box-shadow: inset -3px -3px 7px  rgba(94,104,121,.288), 3px 3px 5px rgba(94,104,121,.288);
  
 
     i
     {
         font-size: 30px;
+    }
+}
+
+.contact
+{
+    display: flex;
+    left: 0;
+    right: 0;
+    margin: 0 auto 0 auto;
+}
+
+.required
+{
+    
+}
+
+.not-fill
+{
+    &::-webkit-input-placeholder
+    {
+        color: red;
+    }
+}
+
+
+.fa-react
+{
+        animation: spin 12s infinite linear;
+}
+
+@keyframes spin
+{
+    0%{
+        transform: rotate(0deg) scale(1.1);
+    }
+    50%{
+        transform:  rotate(180deg)   scale(1.3);
+    }
+    100%{
+        transform: rotate(360deg) scale(1.1);
     }
 }

@@ -40,6 +40,10 @@ svg {
   z-index: 10;
 }
 
+.navbar .burger {
+  display: none;
+}
+
 .logo {
   font-family: 'Hanalei Fill', cursive;
   margin-left: 100px;
@@ -208,7 +212,7 @@ svg {
   color: white;
 }
 
-.about {
+.about-me {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -228,7 +232,7 @@ svg {
   scroll-margin-top: 100px;
 }
 
-.about:hover {
+.about-me:hover {
   -webkit-filter: grayscale(0%);
           filter: grayscale(0%);
 }
@@ -1344,6 +1348,8 @@ section:hover .title::before {
       -ms-flex: 1;
           flex: 1;
   background: black;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
   overflow: hidden;
 }
 
@@ -1400,15 +1406,129 @@ section:hover .title::before {
 
 @media screen and (max-width: 650px) {
   .navbar {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     text-align: center;
+    position: relative;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-height: 50px;
   }
-  .logo {
+  .navbar .menu {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0;
+    height: var(--nHeight);
+    -webkit-transition: 1s ease;
+    transition: 1s ease;
+  }
+  .navbar .menu .navlinks {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0;
+  }
+  .navbar .menu .navlinks li {
     margin: 0;
   }
-  .menu {
-    display: none;
+  .navbar .burger {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 29px;
+    width: 35px;
+    cursor: pointer;
+    background: transparent;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    z-index: 6;
+  }
+  .navbar .burger div {
+    width: 35px;
+    height: 3px;
+    background: rgba(45, 47, 49, 0.822);
+    margin: 5px 0px 5px 0px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  .toggle .line1 {
+    -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+            transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    -webkit-transform: rotate(45deg) translate(-5px, -6px);
+            transform: rotate(45deg) translate(-5px, -6px);
+  }
+  @-webkit-keyframes navLinkFade {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(-5px);
+              transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+  }
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      -webkit-transform: translateY(-5px);
+              transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+    }
+  }
+  @-webkit-keyframes menu {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--nHeight);
+    }
+  }
+  @keyframes menu {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--nHeight);
+    }
+  }
+  .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 0 0 0;
+    height: 40px;
   }
   .hero-wrapper {
     margin: 0;
@@ -1429,7 +1549,7 @@ section:hover .title::before {
   .right {
     display: none;
   }
-  .about {
+  .about-me {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1728,7 +1848,7 @@ section:hover .title::before {
   }
 }
 
-.scrollTop {
+.scrollTopM {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1743,13 +1863,61 @@ section:hover .title::before {
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  right: 10px;
-  bottom: 30px;
+  right: -10px;
+  bottom: 120px;
   -webkit-box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), 3px 3px 5px rgba(94, 104, 121, 0.288);
           box-shadow: inset -3px -3px 7px rgba(94, 104, 121, 0.288), 3px 3px 5px rgba(94, 104, 121, 0.288);
 }
 
-.scrollTop i {
+.scrollTopM i {
   font-size: 30px;
+}
+
+.contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  right: 0;
+  margin: 0 auto 0 auto;
+}
+
+.not-fill::-webkit-input-placeholder {
+  color: red;
+}
+
+.fa-react {
+  -webkit-animation: spin 12s infinite linear;
+          animation: spin 12s infinite linear;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1.1);
+            transform: rotate(0deg) scale(1.1);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(1.3);
+            transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1.1);
+            transform: rotate(360deg) scale(1.1);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1.1);
+            transform: rotate(0deg) scale(1.1);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(1.3);
+            transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1.1);
+            transform: rotate(360deg) scale(1.1);
+  }
 }
 /*# sourceMappingURL=test.css.map */

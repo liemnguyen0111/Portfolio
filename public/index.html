@@ -18,17 +18,26 @@
         <div class="navbar" id="navbar">
             <div class="logo">Tim Nguyen</div>
 
-            <div class="menu">
-                <ul class="navlinks">
-                    <li> <a href="#navbar">Home</a></li>
-                    <li> <a href="#about">About</a></li>
+            <div class=" menu">
+                <ul class="navlinks ">
+                    <li> <a href="#about-me">About</a></li>
                     <li> <a href="#projects">Projects</a></li>
+                    <li> <a href="#experiences">Experiences</a></li>
+                    <li> <a href="#achivement">Achivement</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+            </div>
+
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
         </div>
     </nav>
 
+    <div class="wrapper">
+    <section class="home"> 
     <div class="hero-wrapper">
         <!-- Hero -->
         <div class="hero">
@@ -61,17 +70,18 @@
        
     </div>
 
-    <a href="#about">
+    <a href="#about-me">
     <div class="scroll">
         <div class="dot"></div>
     </div>
     </a>
-
-   
     </div>
 
+    </section>
+
     <!-- About me section -->
-    <div class="about" id="about" >
+    <section class="about"> 
+    <div class="about-me" id="about-me" >
         <div class="portrait">
             <!-- <img src="./assets/images/109020164_272953707133001_7554506661641973272_n.jpg" alt=""> -->
         </div>
@@ -85,6 +95,7 @@
             <div>Shortly after graduating from Northeastern University, I joined the engineering team at Upstatement where I work on a wide variety of interesting and meaningful projects on a daily basis.</div>
         </div>
     </div>
+    </section>
 
     <!-- Projects -->
     <div class="body">
@@ -100,29 +111,24 @@
                     <div class="carousel-slide">
                         
                         <a href="" id='firstClone'>
-                            <img src="./assets/testimage/wed-blog-shutterstock_1703194387_low_nwm.jpg" alt="" srcset="">
+                            <img src="./assets/testimage/ESPACE.png" alt="" srcset="">
                         </a>
 
                             <a href="" id='imgSlide'>
-                                <img src="./assets/testimage/forest.jpg" alt="" srcset="">
+                                <img src="./assets/testimage/cache.png" alt="" srcset="">
                             </a>
 
-                          
-                        
+                              
                         <a href="" id='imgSlide'>
-                            <img src="./assets/testimage/turkey-3048299_1920-1366x550.jpg" alt="" srcset="">
+                            <img src="./assets/testimage/notfacebook.png" alt="" srcset="">
                         </a>
     
                         <a href="" id='imgSlide'>
-                            <img src="./assets/testimage/waterfall.jpg" alt="" srcset="">
-                        </a>
-    
-                        <a href="" id='imgSlide'>
-                            <img src="./assets/testimage/wed-blog-shutterstock_1703194387_low_nwm.jpg" alt="" srcset="">
+                            <img src="./assets/testimage/ESPACE.png" alt="" srcset="">
                         </a>
 
                         <a href="" id='lastClone'>
-                            <img src="./assets/testimage/forest.jpg" alt="" srcset="">
+                            <img src="./assets/testimage/cache.png" alt="" srcset="">
                         </a>
                     </div>
 
@@ -258,7 +264,7 @@
     </div>
 
     <!-- Contact Form -->
- 
+    <section class="contact" > 
         <div class="form" id="contact" data-aos="fade-up"
         data-aos-anchor-placement="center">
             <form class="contact-form" id='contact-form'>
@@ -266,16 +272,16 @@
                 <div>Let me know your questions, suggestions and concerns by filling out the contact below.</div>
         
                 <div class="input">
-                    <input type="text" name="firstName" placeholder="First Name (required)*">
-                    <input type="text" name="lastName" placeholder="Last Name (required)*">
+                    <input class='required' type="text" name="firstName" placeholder="First Name (required)*">
+                    <input class='required' type="text" name="lastName" placeholder="Last Name (required)*">
                 </div>
                
                 <div class="input">
-                    <input type="text" name='company' placeholder="Company (required)*">
+                    <input class='required' type="text" name='company' placeholder="Company (required)*">
                 </div>
                 
                 <div class="input">
-                    <input type="text" name='email' placeholder="e.g, tim@gmail.com (required)*">
+                    <input class='required' type="text" name='email' placeholder="e.g, tim@gmail.com (required)*">
                 </div>
         
                 <div class="input">
@@ -284,14 +290,14 @@
         
                 <div class="input">
                     <!-- <input type="text" placeholder="Your Message (required)*" class="message"> -->
-                    <textarea rows="2" cols="20" name="message" placeholder="Your Message" wrap="hard"></textarea>
+                    <textarea class='required' rows="2" cols="20" name="message" placeholder="Your Message" wrap="hard"></textarea>
                 </div>
                
                 <div class="loader"></div>
                 <button>SUBMIT</button>
             </form>
         </div>
-       
+      </section>
     </div>
 
 
@@ -300,6 +306,7 @@
     <footer class="footer">
         <div class="social-media">
             <div class='top'>         
+                    <a class="scrollTop" href="#top"><i class="fas fa-arrow-up"></i></a>
                     <a href="https://github.com/liemnguyen0111" target="_blank" title='GitHub' ><i class="fab fa-github-alt"></i></a>
                     <a href="https://www.linkedin.com/in/liem-nguyen-588ba1114/" target="_blank" title='Linkedin'><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.instagram.com/heiliem111/?hl=en" target="_blank" title='Instagram'><i class="fab fa-instagram"></i></a>     
@@ -310,10 +317,10 @@
         <div>Designed & Built by Tim Nguyen</div>
        
     </footer>
-
-    <div class="scrollTop" >
+</div>
+    <!-- <div class="scrollTop" >
         <a href="#top"><i class="fas fa-arrow-up"></i></a>
-    </div>
+    </div> -->
 
     <svg>
         <filter id="wavy">
@@ -344,6 +351,7 @@
   <script>
     AOS.init();
   </script>
+    <script src="./assets/script/nav.js"></script>
     <script src="./assets/script/slide.js"></script>
     <script src="./assets/script/projects.js"></script>
     <script src="./assets/script/experiences.js"></script>

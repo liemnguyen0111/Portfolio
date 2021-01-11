@@ -27,7 +27,8 @@ let send = async (user) => {
         Date: ${new Date()}
     
      Message:
-        ${user.message}
+
+        - ${user.message}
     `
   
     // create reusable transporter object using the default SMTP transport
@@ -59,7 +60,7 @@ let send = async (user) => {
   
     let output = `
     <b>Thank you ${user.firstName} ${user.lastName} !</b>
-    <p>Your message has been sent, I'll check my email and get back to you as soon as possible.</p>
+    <p>I've received your message, I'll get back to you as soon as possible.</p>
     <br /> 
     <p>Thank you,</p>
     <p>Tim Nguyen</p>

@@ -10,7 +10,11 @@ document.getElementById('contact-form').addEventListener('submit', e =>
         phone:   e.target.phone.value,
         message : e.target.message.value,
     }
-    document.querySelector('.loader').style.display = 'block'
+
+    
+    if(!required())
+    {
+          document.querySelector('.loader').style.display = 'block'
     let div = document.querySelectorAll('.contact-form div')
     // div[0].innerHTML = `<img src="./assets/testimage/91.gif" alt="">`
     div[1].style.opacity = 0
@@ -26,5 +30,27 @@ document.getElementById('contact-form').addEventListener('submit', e =>
             {
                 console.log(err)
             })
-            
+    }
+
 })
+
+let required = () =>
+{
+    let required = document.querySelectorAll('.required')
+    let notFill = false
+    required.forEach( item =>
+        {
+            if(item.value)
+            {
+                item.classList.remove('not-fill')
+            }
+            else
+            {
+                item.classList.add('not-fill')
+                notFill = true
+            }
+            
+        })
+
+        return notFill
+}

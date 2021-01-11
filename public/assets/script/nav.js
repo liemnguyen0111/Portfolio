@@ -1,9 +1,8 @@
 // Reserve class burger into burger variable for on click handler
 let burger = document.querySelector('.burger')
 const links = document.querySelector('.menu')
-const navLinks = document.querySelectorAll('.nav-links li')
-
-// Event listener when click on burger menu
+const navLinks = document.querySelectorAll('.navlinks li')
+  
 burger.addEventListener('click', () =>
 {
   toggle()
@@ -11,8 +10,26 @@ burger.addEventListener('click', () =>
 
 let toggle = () =>
 {
-    burger.classList.toggle('toggle')
-    links.classList.toggle('nav-active')
+
+    if(burger.classList.toggle('toggle'))
+    {
+        console.log('toggle')
+        links.style.display = 'flex' 
+        links.style.setProperty('--nHeight', `${getElmHeight(links)}px`)
+        links.style.animation = 'menu 1s ease'
+    }
+    else
+    {
+        links.style.animation = 'none'
+        links.style.display = 'none'      
+    }
+    // links.style.display = 'flex'
+    
+    // console.log(getElmHeight(links))
+    // navLinks1.style.setProperty('--nHeight', `${getElmHeight(links)}px`)
+
+    // navLinks1.style.setProperty('--cHeight', `0px`)
+    // navLinks1.classList.toggle('nav-active')
 
        // Check and add/remove animation effects for each link
        navLinks.forEach((link , index) =>
@@ -30,25 +47,30 @@ let toggle = () =>
 
 }
 
-let menu = document.querySelector('.menu')
-let menuclick = 0
-let anyclick = 0
+let navbar = document.querySelector('.wrapper')
 
-document.addEventListener('click', e =>
+navbar.addEventListener('click', e =>
 {
-    console.log(e.target)
+    // console.log('toggle click click')
+    burger.classList.remove('toggle')
+    links.style.animation = 'none'
+    links.style.display = 'none'   
 })
 
-let clickccheck = () =>
+
+window.addEventListener('resize', () =>
 {
-    if(anyclick - menuclick > 1)
+    console.log(window.innerWidth)
+    if(window.innerWidth > 650)
     {
-        menuclick = 0
-        anyclick = 0
-        toggle()
+        burger.classList.remove('toggle')
+        links.style.display = 'flex'   
     }
     else
     {
-        anyclick++
+        console.log('less than 650')
+        burger.classList.remove('toggle')
+        links.style.animation = 'none'
+        links.style.display = 'none'   
     }
-}
+})

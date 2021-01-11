@@ -110,7 +110,6 @@ let pTemplate = (info) =>
 let pCheck = () =>
 {       
     let width = window.innerWidth < 650
-    console.log(width)
     const linerAfter = document.querySelector('.liner')
     const btn = document.querySelector(`[data-name = ${current}]`)
     linerAfter.style.setProperty('--projectBtnAfter', `none`)
@@ -123,29 +122,69 @@ let pCheck = () =>
 window.addEventListener('resize', ()=>
 {   
     pCheck()
+    scrollTop()
+  
 })
 
 // 
 window.addEventListener('scroll', e =>
 {
-    // console.log(e)
+    scrollTop() 
 })
 
+let c = 'home'
 let navCheck = (entries) => {
+
+    
     entries.forEach(entry =>
         {
-            console.log(entry.target.className)
+          
+            if(entry.isIntersecting)
+            {
+             
+                // console.log( document.querySelector(`.scrollTop`).clientHeight)
+
+                c = entry.target.className
+                scrollTop() 
+            }
+            
         })
 }
 
-let sects = document.querySelectorAll('section')
-const options = {
-    threshold : .3
+let scrollTop = () =>
+{
+    if(c === 'home')
+    {
+        document.querySelector(`.scrollTop`).classList.remove('scrollTopM')
+        document.querySelector(`.scrollTop i`).style.opacity = 0
+        document.querySelector(`.scrollTop`).style.cursor = 'default'
+    }
+    else
+    {
+
+        document.querySelector(`.scrollTop i`).style.opacity = 1
+        document.querySelector(`.scrollTop`).style.cursor = 'pointer'
+
+        if(window.innerWidth < 650)
+        {
+            document.querySelector(`.scrollTop`).classList.add('scrollTopM')
+        }
+        else
+        {
+            document.querySelector(`.scrollTop`).classList.remove('scrollTopM')
+        }
+    }
+
+  
 }
+let sects = document.querySelectorAll('section')
+
+const options = {
+
+    threshold : .7
+}
+
 let observer = new IntersectionObserver(navCheck, options)
-
-
-
 
 
 sects.forEach( section =>
